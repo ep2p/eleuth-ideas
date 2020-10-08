@@ -55,3 +55,9 @@ So second-level nodes know the way to get to A is from previous level nodes. In 
 This is a reliable mechanism in a way, cause *ring-2-node-7* knows A is available in network but it only knows to communicate with D if it wants pass something to A. In other word, *ring-2-node-7* has no information where A is exactly.
 
 This path should be cached in each node for a TTL and only as long as previous level node is online. Which means if B goes down, D can no longer rely on this path. Also, to update ttl, it would be fair to ask node A to send periodic heartbeats (availability message).
+
+<img src="https://github.com/idioglossia/eleuth-ideas/blob/main/images/Multi%20Ring%20Cache.svg?raw=true" width="500" alt="Multi ring Lookup"/>
+
+Now, back to the first scenario where B sent message which passed another ring (ring-1). Since every member of ring-2 know how to reach to A, its safe that ring-2 creates a cache that says:
+- A is available in ring-2
+- ring-2 is available in through nodes 5 and 7
