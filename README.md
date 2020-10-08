@@ -61,3 +61,5 @@ This path should be cached in each node for a TTL and only as long as previous l
 Now, back to the first scenario where B sent message which passed another ring (ring-1). Since every member of ring-2 know how to reach to A, its safe that ring-2 creates a cache that says:
 - A is available in ring-2
 - ring-2 is available in through nodes 5 and 7
+
+This also means that this cache is `one-to-many`. In other words, each node can have `list of other nodes` to use for accessing a single node.
