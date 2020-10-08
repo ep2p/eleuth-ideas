@@ -13,5 +13,6 @@ Therefore if we look at the network in wide angle, we observe multiple rings and
 ## Rings
 Each ring contains group of nodes that are connected with same ring id. Each node of ring creates connection to `(log n)` nodes.
 
- ![Ring](https://raw.githubusercontent.com/idioglossia/eleuth-ideas/main/images/Ring%20Broadcast.svg)
+<img src="https://github.com/idioglossia/eleuth-ideas/raw/main/images/Ring%20Broadcast.svg" width="350" alt="Ring Broadcast"/>
+
  
