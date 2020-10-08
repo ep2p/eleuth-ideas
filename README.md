@@ -34,11 +34,24 @@ Also note that `[1,5]` is added to previous exclude list: `[0,2,4]` which result
 When a node becomes available, it publishes a signed message to all its seeders. Seeder nodes will also publish this availability message to other nodes, and this process could go on till *N edges are passed* or *message reaches to one ring with at least x members*.
 For now we focus on scenario when availability message moves forward in a chain till it reaches first ring. 
 
-<img src="https://github.com/idioglossia/eleuth-ideas/blob/main/images/Multi Ring Lookup.svg?raw=true" width="500" alt="Multi ring Lookup"/>
+<img src="https://github.com/idioglossia/eleuth-ideas/blob/main/images/Multi Ring Lookup.svg?raw=true" width="600" alt="Multi ring Lookup"/>
 
 
 When Availability message reaches to a ring, a broadcast will be sent too all members of ring, therefor all members will know a node is available.
 In image above, all `light blue` colored nodes, know that a node with id of A is available. Also all members of *ring-2* know that node A is available through *ring-node-6*.
 
-Now if B looks up for A, the find message will move through chain till it reaches *Ring-1* and then it will be broadcast to all members of *ring-1* and finally it is passed to *ring-2* and thats when 
+Now if B looks up for A, the find message will move through chain till it reaches *Ring-1* and then it will be broadcast to all members of *ring-1* and finally it is passed to *ring-2* and that's when *ring-2-node-4* knows where node A is and responses.
 
+### Node Address Caching
+Something that is not mentioned directly in **Availability** but is definitely playing important part in routing B->A is route cache.
+
+<img src="https://github.com/idioglossia/eleuth-ideas/blob/main/images/Single%20Ring%20Cache.svg?raw=true" width="500" alt="Multi ring Lookup"/>
+
+The image above can explain how routing and caching is done in Eleuth network. When node `A` goes online, it tells all the other nodes about its availability.
+So first-level nodes know that they have connection to A.
+Then they tell next level nodes that they have access to A.
+So second-level nodes know the way to get to A is from previous level nodes. In above example, D knows to send a message to A, it should send it to B and B will pass that message to A.
+
+This is a reliable mechanism in a way, cause *ring-2-node-7* knows A is available in network but it only knows to communicate with D if it wants pass something to A. In other word, *ring-2-node-7* has no information where A is exactly.
+
+This path should be cached in each node for a TTL and only as long as previous level node is online. Which means if B goes down, D can no longer rely on this path. Also, to update ttl, it would be fair to ask node A to send periodic heartbeats (availability message).
