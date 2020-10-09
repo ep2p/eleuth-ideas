@@ -66,7 +66,7 @@ This also means that this cache is `one-to-many`. In other words, each node can 
 
 ## IDEA FIX - Caching external node address in a ring
 
-Instead of broadcastin an external node address to all the members of a ring to cache the address, we could store that address in the closest node by comparing `hash of the external node address` and `internal node address` using XOR.
+Instead of broadcastin an external node address to all the members of a ring to cache the address, we could store that address in the closest node by comparing `hash of the external node address` and `internal node address` using XOR. This will use less bandwidth for the ring and also less persistance storage for route table.
 
 Furthur readins:
 - [XOR Distance and Basic Routing](https://www.youtube.com/watch?v=w9UObz8o8lY)
