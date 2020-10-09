@@ -63,3 +63,11 @@ Now, back to the first scenario where B sent message which passed another ring (
 - ring-2 is available in through nodes 5 and 7
 
 This also means that this cache is `one-to-many`. In other words, each node can have `list of other nodes` to use for accessing a single node.
+
+## IDEA FIX - Caching external node address in a ring
+
+Instead of broadcastin an external node address to all the members of a ring to cache the address, we could store that address in the closest node by comparing `hash of the external node address` and `internal node address` using XOR.
+
+Furthur readins:
+- [XOR Distance and Basic Routing](https://www.youtube.com/watch?v=w9UObz8o8lY)
+- [Routing in Distributed Hash Tables](https://www.youtube.com/watch?v=WqQRQz_XYg4)
