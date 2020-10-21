@@ -71,3 +71,7 @@ Instead of broadcastin an external node address to all the members of a ring to 
 Furthur readins:
 - [XOR Distance and Basic Routing](https://www.youtube.com/watch?v=w9UObz8o8lY)
 - [Routing in Distributed Hash Tables](https://www.youtube.com/watch?v=WqQRQz_XYg4)
+
+## IDEA ISSUES - Availability
+
+Availability explanation has some issues. First, we can't know how many nodes are availabile in kademlia ring. Second, Its almost impossible to make sure a second ring will have any information about nodes from first ring. Therefore, multiple ring idea has some issues. 
