@@ -78,5 +78,8 @@ Availability explanation has some issues. Its almost impossible to make sure a s
 Possible fix the idea of "Community based" network:
 
 ```
-Eleuth should initialize a community for initial and main ring. Other rings can create a connection to this ring, so the availablity message moves around the network. Or they should let the device and proxy nodes know that their ring has no connection to main ring. Also, there should be a way to prove that each secondary ring has connection to main ring.
+Eleuth should initialize a community for initial and main ring.
+Other rings can create a connection to this ring, so the availablity message moves around the network.
+Or they should let the device and proxy nodes know that their ring has no connection to main ring. 
+Also, there should be a way to prove that each secondary ring has connection to main ring.
 ```
