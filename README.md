@@ -49,7 +49,7 @@ In that case, N (as in "this process could go on till N edges are passed") shoul
 ---
 
 ### Routing and cache
-Something that is not mentioned directly in **Availability** but is definitely playing important part in routing and route cache.
+Something that is not mentioned directly in **Availability** but is definitely playing important part in routing is the route cache.
 
 <img src="https://github.com/idioglossia/eleuth-ideas/blob/main/images/Single%20Ring%20Cache.svg?raw=true" width="500" alt="Multi ring Lookup"/>
 
@@ -66,7 +66,7 @@ This path should be cached in each node for a TTL and only as long as previous l
 
 Now, back to the first scenario where B sent message which passed another ring (ring-1). Since every member of ring-2 know how to reach to A, its safe that ring-2 creates a cache that says:
 - A is available in ring-2
-- ring-2 is available in through nodes 5 and 7
+- ring-2 is available through nodes 5 and 7
 
 This also means that this cache is `one-to-many`. In other words, each node can have list of other nodes as routes.
 
@@ -82,4 +82,7 @@ Eleuth should initialize a community for initial and main ring.
 Other rings can create a connection to this ring, so the availablity message moves around the network.
 Or they should let the device and proxy nodes know that their ring has no connection to main ring. 
 Also, there should be a way to prove that each secondary ring has connection to main ring.
+```
+```
+ Each community needs to store couple of nodeIds with public key in a reachable web address or hard coded in their custom forked application builds to let clients make sure they can access the community ring by pinging those nodes.
 ```
