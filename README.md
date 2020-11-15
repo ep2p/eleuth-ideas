@@ -32,9 +32,13 @@ Rings can also broadcast messages between members of ring.
 
 Image above shows how this broadcast can be sent to all members. Each node passes the message to other nodes in ring that it has in its routing table. These nodes then pass the same message to other nodes they know of, excluding the ones already used by previous nodes. This process goes on till there is no longer a node left to send message to.
 
-### Proxies
+### Proxy Nodes
 
 Proxy nodes basically have to forward incoming requests to other nodes. The other nodes can be devices, or ring nodes.
+
+### Endpoint Nodes
+
+Endpoints are devices that people use to send messages to other people. It has no ring capablity but can be a proxy node too.
 
 ---
 
